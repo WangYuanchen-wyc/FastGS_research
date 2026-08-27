@@ -1,0 +1,151 @@
+{
+  "scene": "/mnt/workspace/Dataset/room",
+  "diag_context": {
+    "iteration": 1000,
+    "parent_index": 7445,
+    "native_action": "split",
+    "importance_score": 58213,
+    "grad": 0.0007365215569734573,
+    "grad_abs": 0.005598315503448248,
+    "scale": [
+      12.037671089172363,
+      4.201973915100098,
+      5.2708587646484375
+    ],
+    "scale_max": 12.037671089172363,
+    "opacity": 0.76736980676651,
+    "n_clone_candidates": 41,
+    "n_split_candidates": 9743,
+    "n_gaussians_before": 112627,
+    "pruning_score_parent": 0.9509872794151306
+  },
+  "config": {
+    "densification_interval": 500,
+    "grad_thresh": 0.0002,
+    "grad_abs_thresh": 0.0008,
+    "dense": 0.001,
+    "mult": 0.5,
+    "loss_thresh": 0.1,
+    "probe_count": 5,
+    "diag_steps": 100,
+    "camseq_seed": 2024,
+    "action_seed": 1234,
+    "train_seed": 1234,
+    "warmup_seed": 0
+  },
+  "branches": {
+    "keep": {
+      "n_gaussians_after_action": 112627,
+      "net_delta_gs": 0,
+      "evals": {
+        "0": {
+          "loss": 0.0559414678812027,
+          "psnr": 26.25824775695801,
+          "ssim": 0.8369446873664856,
+          "lpips": 0.3500013589859009,
+          "num_gaussians": 112627,
+          "tile_pairs_mean": 444833.2
+        },
+        "50": {
+          "loss": 0.056079723536968246,
+          "psnr": 26.293446731567386,
+          "ssim": 0.8374736309051514,
+          "lpips": 0.34808887243270875,
+          "num_gaussians": 112627,
+          "tile_pairs_mean": 441604.2
+        },
+        "100": {
+          "loss": 0.05559875965118408,
+          "psnr": 26.216284942626956,
+          "ssim": 0.8396351456642152,
+          "lpips": 0.3457307755947113,
+          "num_gaussians": 112627,
+          "tile_pairs_mean": 439909.0
+        }
+      },
+      "render_latency_ms": 1.9351783990859985,
+      "render_latency_std_ms": 0.08327396214008331,
+      "fps": 516.7482235603233,
+      "tile_pairs_mean": 439909.0
+    },
+    "clone": {
+      "n_gaussians_after_action": 112628,
+      "net_delta_gs": 1,
+      "evals": {
+        "0": {
+          "loss": 0.05595096826553345,
+          "psnr": 26.257976150512697,
+          "ssim": 0.8369140028953552,
+          "lpips": 0.35003018379211426,
+          "num_gaussians": 112628,
+          "tile_pairs_mean": 446038.2
+        },
+        "50": {
+          "loss": 0.05609183877706528,
+          "psnr": 26.29289474487305,
+          "ssim": 0.8374326944351197,
+          "lpips": 0.3480375409126282,
+          "num_gaussians": 112628,
+          "tile_pairs_mean": 442644.2
+        },
+        "100": {
+          "loss": 0.055589851737022404,
+          "psnr": 26.216592407226564,
+          "ssim": 0.8396619081497193,
+          "lpips": 0.3455911874771118,
+          "num_gaussians": 112628,
+          "tile_pairs_mean": 440855.8
+        }
+      },
+      "render_latency_ms": 1.9787724018096924,
+      "render_latency_std_ms": 0.09918325394392014,
+      "fps": 505.3638301633108,
+      "tile_pairs_mean": 440855.8
+    },
+    "split": {
+      "n_gaussians_after_action": 112628,
+      "net_delta_gs": 1,
+      "evals": {
+        "0": {
+          "loss": 0.05593724846839905,
+          "psnr": 26.25806427001953,
+          "ssim": 0.8369659066200257,
+          "lpips": 0.34996973872184756,
+          "num_gaussians": 112628,
+          "tile_pairs_mean": 443628.2
+        },
+        "50": {
+          "loss": 0.05603653818368912,
+          "psnr": 26.295632934570314,
+          "ssim": 0.8376056671142579,
+          "lpips": 0.3480825960636139,
+          "num_gaussians": 112628,
+          "tile_pairs_mean": 440294.4
+        },
+        "100": {
+          "loss": 0.05560089021921158,
+          "psnr": 26.21463966369629,
+          "ssim": 0.8396257996559143,
+          "lpips": 0.3457021296024323,
+          "num_gaussians": 112628,
+          "tile_pairs_mean": 438806.0
+        }
+      },
+      "render_latency_ms": 2.0361413955688477,
+      "render_latency_std_ms": 0.10323319584131241,
+      "fps": 491.12502804385286,
+      "tile_pairs_mean": 438806.0
+    }
+  },
+  "deltas": {
+    "dPSNR_clone@0": -0.00027160644531321054,
+    "dPSNR_split@0": -0.00018348693847869413,
+    "dPSNR_clone@50": -0.000551986694336648,
+    "dPSNR_split@50": 0.0021862030029282664,
+    "dPSNR_clone@100": 0.0003074645996079539,
+    "dPSNR_split@100": -0.0016452789306669047,
+    "split_minus_clone@100": -0.0019527435302748586,
+    "dLatency_clone_ms": 0.04359400272369385,
+    "dLatency_split_ms": 0.10096299648284912
+  }
+}
