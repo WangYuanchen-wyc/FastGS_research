@@ -1,0 +1,83 @@
+Reading camera 1/311Reading camera 2/311Reading camera 3/311Reading camera 4/311Reading camera 5/311Reading camera 6/311Reading camera 7/311Reading camera 8/311Reading camera 9/311Reading camera 10/311Reading camera 11/311Reading camera 12/311Reading camera 13/311Reading camera 14/311Reading camera 15/311Reading camera 16/311Reading camera 17/311Reading camera 18/311Reading camera 19/311Reading camera 20/311Reading camera 21/311Reading camera 22/311Reading camera 23/311Reading camera 24/311Reading camera 25/311Reading camera 26/311Reading camera 27/311Reading camera 28/311Reading camera 29/311Reading camera 30/311Reading camera 31/311Reading camera 32/311Reading camera 33/311Reading camera 34/311Reading camera 35/311Reading camera 36/311Reading camera 37/311Reading camera 38/311Reading camera 39/311Reading camera 40/311Reading camera 41/311Reading camera 42/311Reading camera 43/311Reading camera 44/311Reading camera 45/311Reading camera 46/311Reading camera 47/311Reading camera 48/311Reading camera 49/311Reading camera 50/311Reading camera 51/311Reading camera 52/311Reading camera 53/311Reading camera 54/311Reading camera 55/311Reading camera 56/311Reading camera 57/311Reading camera 58/311Reading camera 59/311Reading camera 60/311Reading camera 61/311Reading camera 62/311Reading camera 63/311Reading camera 64/311Reading camera 65/311Reading camera 66/311Reading camera 67/311Reading camera 68/311Reading camera 69/311Reading camera 70/311Reading camera 71/311Reading camera 72/311Reading camera 73/311Reading camera 74/311Reading camera 75/311Reading camera 76/311Reading camera 77/311Reading camera 78/311Reading camera 79/311Reading camera 80/311Reading camera 81/311Reading camera 82/311Reading camera 83/311Reading camera 84/311Reading camera 85/311Reading camera 86/311Reading camera 87/311Reading camera 88/311Reading camera 89/311Reading camera 90/311Reading camera 91/311Reading camera 92/311Reading camera 93/311Reading camera 94/311Reading camera 95/311Reading camera 96/311Reading camera 97/311Reading camera 98/311Reading camera 99/311Reading camera 100/311Reading camera 101/311Reading camera 102/311Reading camera 103/311Reading camera 104/311Reading camera 105/311Reading camera 106/311Reading camera 107/311Reading camera 108/311Reading camera 109/311Reading camera 110/311Reading camera 111/311Reading camera 112/311Reading camera 113/311Reading camera 114/311Reading camera 115/311Reading camera 116/311Reading camera 117/311Reading camera 118/311Reading camera 119/311Reading camera 120/311Reading camera 121/311Reading camera 122/311Reading camera 123/311Reading camera 124/311Reading camera 125/311Reading camera 126/311Reading camera 127/311Reading camera 128/311Reading camera 129/311Reading camera 130/311Reading camera 131/311Reading camera 132/311Reading camera 133/311Reading camera 134/311Reading camera 135/311Reading camera 136/311Reading camera 137/311Reading camera 138/311Reading camera 139/311Reading camera 140/311Reading camera 141/311Reading camera 142/311Reading camera 143/311Reading camera 144/311Reading camera 145/311Reading camera 146/311Reading camera 147/311Reading camera 148/311Reading camera 149/311Reading camera 150/311Reading camera 151/311Reading camera 152/311Reading camera 153/311Reading camera 154/311Reading camera 155/311Reading camera 156/311Reading camera 157/311Reading camera 158/311Reading camera 159/311Reading camera 160/311Reading camera 161/311Reading camera 162/311Reading camera 163/311Reading camera 164/311Reading camera 165/311Reading camera 166/311Reading camera 167/311Reading camera 168/311Reading camera 169/311Reading camera 170/311Reading camera 171/311Reading camera 172/311Reading camera 173/311Reading camera 174/311Reading camera 175/311Reading camera 176/311Reading camera 177/311Reading camera 178/311Reading camera 179/311Reading camera 180/311Reading camera 181/311Reading camera 182/311Reading camera 183/311Reading camera 184/311Reading camera 185/311Reading camera 186/311Reading camera 187/311Reading camera 188/311Reading camera 189/311Reading camera 190/311Reading camera 191/311Reading camera 192/311Reading camera 193/311Reading camera 194/311Reading camera 195/311Reading camera 196/311Reading camera 197/311Reading camera 198/311Reading camera 199/311Reading camera 200/311Reading camera 201/311Reading camera 202/311Reading camera 203/311Reading camera 204/311Reading camera 205/311Reading camera 206/311Reading camera 207/311Reading camera 208/311Reading camera 209/311Reading camera 210/311Reading camera 211/311Reading camera 212/311Reading camera 213/311Reading camera 214/311Reading camera 215/311Reading camera 216/311Reading camera 217/311Reading camera 218/311Reading camera 219/311Reading camera 220/311Reading camera 221/311Reading camera 222/311Reading camera 223/311Reading camera 224/311Reading camera 225/311Reading camera 226/311Reading camera 227/311Reading camera 228/311Reading camera 229/311Reading camera 230/311Reading camera 231/311Reading camera 232/311Reading camera 233/311Reading camera 234/311Reading camera 235/311Reading camera 236/311Reading camera 237/311Reading camera 238/311Reading camera 239/311Reading camera 240/311Reading camera 241/311Reading camera 242/311Reading camera 243/311Reading camera 244/311Reading camera 245/311Reading camera 246/311Reading camera 247/311Reading camera 248/311Reading camera 249/311Reading camera 250/311Reading camera 251/311Reading camera 252/311Reading camera 253/311Reading camera 254/311Reading camera 255/311Reading camera 256/311Reading camera 257/311Reading camera 258/311Reading camera 259/311Reading camera 260/311Reading camera 261/311Reading camera 262/311Reading camera 263/311Reading camera 264/311Reading camera 265/311Reading camera 266/311Reading camera 267/311Reading camera 268/311Reading camera 269/311Reading camera 270/311Reading camera 271/311Reading camera 272/311Reading camera 273/311Reading camera 274/311Reading camera 275/311Reading camera 276/311Reading camera 277/311Reading camera 278/311Reading camera 279/311Reading camera 280/311Reading camera 281/311Reading camera 282/311Reading camera 283/311Reading camera 284/311Reading camera 285/311Reading camera 286/311Reading camera 287/311Reading camera 288/311Reading camera 289/311Reading camera 290/311Reading camera 291/311Reading camera 292/311Reading camera 293/311Reading camera 294/311Reading camera 295/311Reading camera 296/311Reading camera 297/311Reading camera 298/311Reading camera 299/311Reading camera 300/311Reading camera 301/311Reading camera 302/311Reading camera 303/311Reading camera 304/311Reading camera 305/311Reading camera 306/311Reading camera 307/311Reading camera 308/311Reading camera 309/311Reading camera 310/311Reading camera 311/311/opt/miniconda3/envs/fastgs/lib/python3.7/site-packages/torch/functional.py:478: UserWarning: torch.meshgrid: in an upcoming release, it will be required to pass the indexing argument. (Triggered internally at  ../aten/src/ATen/native/TensorShape.cpp:2894.)
+  return _VF.meshgrid(tensors, **kwargs)  # type: ignore[attr-defined]
+
+Loading Training Cameras
+[ INFO ] Encountered quite large input images (>1.6K pixels width), rescaling to 1.6K.
+ If this is not desired, please explicitly specify '--resolution/-r' as 1
+Loading Test Cameras
+Number of points at initialisation :  112627
+[v2] pool=30 train cams, global probe=5 (test)
+
+[v2] === diagnostic hook at iteration 1000 ===
+
+[v2] === diagnostic hook at iteration 1500 ===
+
+[v2] === diagnostic hook at iteration 2000 ===
+
+[v2] batch iter=1000: 20 candidates, N=112627 (clone set=45, split set=9806)
+  cand 0 (clone, idx=1889): dQ_dem c=-0.000055 s=-0.000538 | dTile@0 c=+1.250000 s=+0.875000 | winner=keep
+  cand 1 (clone, idx=48348): dQ_dem c=+0.000137 s=+0.000290 | dTile@0 c=+2.142857 s=+1.000000 | winner=split
+  cand 2 (clone, idx=4752): dQ_dem c=-0.000401 s=-0.003624 | dTile@0 c=+2.375000 s=+1.125000 | winner=keep
+  cand 3 (clone, idx=46212): dQ_dem c=+0.000272 s=-0.000381 | dTile@0 c=+1.125000 s=+1.250000 | winner=clone
+  cand 4 (clone, idx=24985): dQ_dem c=-0.000019 s=+0.000324 | dTile@0 c=+1.875000 s=+1.250000 | winner=split
+  cand 5 (clone, idx=46622): dQ_dem c=+0.000231 s=-0.000316 | dTile@0 c=+1.750000 s=+1.500000 | winner=clone
+  cand 6 (clone, idx=81591): dQ_dem c=-0.000054 s=+0.000194 | dTile@0 c=+2.428571 s=+0.857143 | winner=split
+  cand 7 (clone, idx=11656): dQ_dem c=+0.000027 s=-0.000056 | dTile@0 c=+2.000000 s=+1.625000 | winner=clone
+  cand 8 (clone, idx=152): dQ_dem c=+0.000222 s=-0.000172 | dTile@0 c=+1.625000 s=+0.875000 | winner=clone
+  cand 9 (clone, idx=42935): dQ_dem c=+0.000419 s=-0.000229 | dTile@0 c=+1.875000 s=+0.750000 | winner=clone
+  cand 10 (split, idx=77808): dQ_dem c=-0.000125 s=-0.000050 | dTile@0 c=+4.428571 s=-0.142857 | winner=keep
+  cand 11 (split, idx=6978): dQ_dem c=+0.000021 s=-0.000102 | dTile@0 c=+13.000000 s=+1.200000 | winner=clone
+  cand 12 (split, idx=11037): dQ_dem c=+0.000333 s=-0.000745 | dTile@0 c=+2.250000 s=+0.875000 | winner=clone
+  cand 13 (split, idx=59735): dQ_dem c=+0.000090 s=+0.000124 | dTile@0 c=+11.000000 s=-0.833333 | winner=split
+  cand 14 (split, idx=26134): dQ_dem c=-0.000665 s=+0.000063 | dTile@0 c=+3.750000 s=+1.500000 | winner=split
+  cand 15 (split, idx=6606): dQ_dem c=-0.000041 s=+0.000117 | dTile@0 c=+7.125000 s=+1.750000 | winner=split
+  cand 16 (split, idx=8796): dQ_dem c=-0.000064 s=+0.000013 | dTile@0 c=+11.000000 s=+0.875000 | winner=split
+  cand 17 (split, idx=87170): dQ_dem c=+0.002521 s=+0.000407 | dTile@0 c=+9.000000 s=+3.000000 | winner=clone
+  cand 18 (split, idx=79927): dQ_dem c=+0.000042 s=+0.000096 | dTile@0 c=+117.875000 s=-7.500000 | winner=split
+  cand 19 (split, idx=63098): dQ_dem c=-0.000130 s=+0.000208 | dTile@0 c=+43.000000 s=+10.125000 | winner=split
+
+[v2] batch iter=1500: 20 candidates, N=122478 (clone set=80, split set=14641)
+  cand 0 (clone, idx=61252): dQ_dem c=+0.000268 s=-0.001970 | dTile@0 c=+1.500000 s=+1.125000 | winner=clone
+  cand 1 (clone, idx=109061): dQ_dem c=-0.000150 s=-0.000828 | dTile@0 c=+1.750000 s=+1.250000 | winner=keep
+  cand 2 (clone, idx=59961): dQ_dem c=+0.002407 s=+0.001671 | dTile@0 c=+2.250000 s=+0.500000 | winner=clone
+  cand 3 (clone, idx=25794): dQ_dem c=+0.000283 s=+0.000228 | dTile@0 c=+2.375000 s=+1.250000 | winner=clone
+  cand 4 (clone, idx=87407): dQ_dem c=-0.006561 s=-0.009045 | dTile@0 c=+2.000000 s=+1.750000 | winner=keep
+  cand 5 (clone, idx=33400): dQ_dem c=+0.000885 s=-0.000326 | dTile@0 c=+1.750000 s=+1.375000 | winner=clone
+  cand 6 (clone, idx=20222): dQ_dem c=-0.000134 s=-0.000008 | dTile@0 c=+1.375000 s=+0.875000 | winner=keep
+  cand 7 (clone, idx=26339): dQ_dem c=+0.000014 s=-0.000059 | dTile@0 c=+1.875000 s=+1.750000 | winner=clone
+  cand 8 (clone, idx=26334): dQ_dem c=-0.000075 s=-0.000209 | dTile@0 c=+2.000000 s=+1.125000 | winner=keep
+  cand 9 (clone, idx=58924): dQ_dem c=-0.000283 s=-0.000087 | dTile@0 c=+1.750000 s=+1.000000 | winner=keep
+  cand 10 (split, idx=43506): dQ_dem c=-0.000436 s=-0.000461 | dTile@0 c=+3.625000 s=+1.625000 | winner=keep
+  cand 11 (split, idx=84357): dQ_dem c=-0.000047 s=+0.000025 | dTile@0 c=+9.875000 s=+1.000000 | winner=split
+  cand 12 (split, idx=79674): dQ_dem c=+0.000081 s=+0.000147 | dTile@0 c=+2.875000 s=+1.875000 | winner=split
+  cand 13 (split, idx=114599): dQ_dem c=-0.000165 s=-0.001083 | dTile@0 c=+8.600000 s=+2.000000 | winner=keep
+  cand 14 (split, idx=114049): dQ_dem c=+0.000569 s=+0.002018 | dTile@0 c=+6.875000 s=+2.250000 | winner=split
+  cand 15 (split, idx=114103): dQ_dem c=+0.000017 s=-0.000341 | dTile@0 c=+4.625000 s=+1.250000 | winner=clone
+  cand 16 (split, idx=103293): dQ_dem c=-0.000187 s=-0.001081 | dTile@0 c=+9.500000 s=+1.125000 | winner=keep
+  cand 17 (split, idx=32441): dQ_dem c=-0.000036 s=-0.000065 | dTile@0 c=+18.000000 s=+1.375000 | winner=keep
+  cand 18 (split, idx=56549): dQ_dem c=+0.000136 s=-0.000489 | dTile@0 c=+5.000000 s=+0.750000 | winner=clone
+  cand 19 (split, idx=76591): dQ_dem c=+0.000284 s=-0.000245 | dTile@0 c=+15.000000 s=-10.000000 | winner=clone
+
+[v2] batch iter=2000: 20 candidates, N=137181 (clone set=123, split set=12091)
+  cand 0 (clone, idx=94469): dQ_dem c=-0.000207 s=-0.000558 | dTile@0 c=+1.750000 s=+1.375000 | winner=keep
+  cand 1 (clone, idx=101686): dQ_dem c=-0.000461 s=-0.002769 | dTile@0 c=+2.250000 s=+1.375000 | winner=keep
+  cand 2 (clone, idx=128355): dQ_dem c=+0.000251 s=+0.000805 | dTile@0 c=+1.571429 s=+1.428571 | winner=split
+  cand 3 (clone, idx=57898): dQ_dem c=+0.000427 s=-0.000159 | dTile@0 c=+2.000000 s=+1.200000 | winner=clone
+  cand 4 (clone, idx=43311): dQ_dem c=+0.000353 s=+0.000027 | dTile@0 c=+1.875000 s=+1.125000 | winner=clone
+  cand 5 (clone, idx=98920): dQ_dem c=+0.000021 s=+0.000270 | dTile@0 c=+2.375000 s=+1.625000 | winner=split
+  cand 6 (clone, idx=18549): dQ_dem c=+0.000167 s=-0.000421 | dTile@0 c=+1.375000 s=+0.875000 | winner=clone
+  cand 7 (clone, idx=103209): dQ_dem c=-0.000288 s=+0.000115 | dTile@0 c=+2.500000 s=+1.625000 | winner=split
+  cand 8 (clone, idx=48437): dQ_dem c=+0.000264 s=-0.000135 | dTile@0 c=+2.250000 s=+1.125000 | winner=clone
+  cand 9 (clone, idx=94094): dQ_dem c=+0.000107 s=+0.000359 | dTile@0 c=+2.000000 s=+1.500000 | winner=split
+  cand 10 (split, idx=130366): dQ_dem c=+0.000018 s=-0.000173 | dTile@0 c=+4.625000 s=+1.875000 | winner=clone
+  cand 11 (split, idx=102529): dQ_dem c=-0.000092 s=+0.000324 | dTile@0 c=+2.750000 s=+1.375000 | winner=split
+  cand 12 (split, idx=120578): dQ_dem c=-0.000056 s=+0.000038 | dTile@0 c=+11.625000 s=+2.750000 | winner=split
+  cand 13 (split, idx=53217): dQ_dem c=-0.000026 s=+0.000119 | dTile@0 c=+2.500000 s=+1.750000 | winner=split
+  cand 14 (split, idx=106151): dQ_dem c=+0.000072 s=+0.000382 | dTile@0 c=+3.800000 s=+1.000000 | winner=split
+  cand 15 (split, idx=59616): dQ_dem c=+0.000008 s=+0.000002 | dTile@0 c=+5.000000 s=+1.500000 | winner=clone
+  cand 16 (split, idx=96850): dQ_dem c=-0.000142 s=-0.000186 | dTile@0 c=+6.000000 s=+2.125000 | winner=keep
+  cand 17 (split, idx=29623): dQ_dem c=-0.000033 s=+0.000246 | dTile@0 c=+6.875000 s=+0.750000 | winner=split
+  cand 18 (split, idx=12655): dQ_dem c=-0.000164 s=-0.000471 | dTile@0 c=+8.000000 s=+2.500000 | winner=keep
+  cand 19 (split, idx=97645): dQ_dem c=+0.000174 s=+0.000049 | dTile@0 c=+14.375000 s=+1.125000 | winner=clone
+
+[v2] saved project_md/action_diag_v2.json , project_md/action_diag_v2.csv , 60 candidate records
