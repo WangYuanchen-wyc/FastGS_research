@@ -317,7 +317,8 @@ std::tuple<int,int> CudaRasterizer::Rasterizer::forward(
 	int* radii,
 	bool debug,
 	bool get_flag,
-	int* metricCount)
+	int* metricCount,
+	float* gauss_weights)
 {
 	const float focal_y = height / (2.0f * tan_fovy);
 	const float focal_x = width / (2.0f * tan_fovx);
@@ -455,7 +456,8 @@ std::tuple<int,int> CudaRasterizer::Rasterizer::forward(
 		radii,
 		metric_map,
 		get_flag,
-		metricCount), debug)
+		metricCount,
+		gauss_weights), debug)
 
 	return std::make_tuple(num_rendered, bucket_sum);
 }

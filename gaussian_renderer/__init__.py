@@ -15,7 +15,7 @@ from scene.gaussian_model import GaussianModel
 from utils.sh_utils import eval_sh
 from diff_gaussian_rasterization_fastgs import GaussianRasterizationSettings, GaussianRasterizer
 
-def render_fastgs(viewpoint_camera, pc : GaussianModel, pipe, bg_color : torch.Tensor, mult, scaling_modifier = 1.0, override_color = None, get_flag=None, metric_map = None):
+def render_fastgs(viewpoint_camera, pc : GaussianModel, pipe, bg_color : torch.Tensor, mult, scaling_modifier = 1.0, override_color = None, get_flag=None, metric_map = None, get_weights = False):
     """
     Render the scene. 
     
@@ -52,7 +52,8 @@ def render_fastgs(viewpoint_camera, pc : GaussianModel, pipe, bg_color : torch.T
         prefiltered=False,
         debug=pipe.debug,
         get_flag=get_flag,
-        metric_map = metric_map
+        metric_map = metric_map,
+        get_weights = get_weights
     )
 
     rasterizer = GaussianRasterizer(raster_settings=raster_settings)
@@ -89,8 +90,8 @@ def render_fastgs(viewpoint_camera, pc : GaussianModel, pipe, bg_color : torch.T
     else:
         colors_precomp = override_color
 
-    # Rasterize visible Gaussians to image, obtain their radii (on screen). 
-    rendered_image, radii, accum_metric_counts = rasterizer(
+    # Rasterize visible Gaussians to image, obtain their radii (on screen).
+    rendered_image, radii, accum_metric_counts, gauss_weights = rasterizer(
         means3D = means3D,
         means2D = means2D,
         dc = dc,
@@ -107,4 +108,5 @@ def render_fastgs(viewpoint_camera, pc : GaussianModel, pipe, bg_color : torch.T
             "viewspace_points": screenspace_points,
             "visibility_filter" : (radii > 0).nonzero(),
             "radii": radii,
-            "accum_metric_counts" : accum_metric_counts}
+            "accum_metric_counts" : accum_metric_counts,
+            "gauss_weights" : gauss_weights}

@@ -49,7 +49,7 @@ std::function<float*(size_t N)> resizeFloatFunctional(torch::Tensor& t) {
     return lambda;
 }
 
-std::tuple<int, int, torch::Tensor, torch::Tensor, torch::Tensor, torch::Tensor, torch::Tensor, torch::Tensor, torch::Tensor>
+std::tuple<int, int, torch::Tensor, torch::Tensor, torch::Tensor, torch::Tensor, torch::Tensor, torch::Tensor, torch::Tensor, torch::Tensor>
 RasterizeGaussiansCUDA(
 	const torch::Tensor& background,
 	const torch::Tensor& means3D,
@@ -73,7 +73,8 @@ RasterizeGaussiansCUDA(
     const float mult,
 	const bool prefiltered,
 	const bool debug,
-	const bool get_flag)
+	const bool get_flag,
+	const bool get_weights)
 {
   if (means3D.ndimension() != 2 || means3D.size(1) != 3) {
     AT_ERROR("means3D must have dimensions (num_points, 3)");
@@ -108,6 +109,14 @@ RasterizeGaussiansCUDA(
   {
 	metricCount = torch::full({P}, 0, int_opts);
 	accum_metric_counts_ptr = metricCount.contiguous().data<int>();
+  }
+
+  float* gauss_weights_ptr = nullptr;
+  torch::Tensor gaussWeights = torch::empty({0}, float_opts);
+  if(get_weights)
+  {
+	gaussWeights = torch::full({P}, 0.0, float_opts);
+	gauss_weights_ptr = gaussWeights.contiguous().data<float>();
   }
   
   int rendered = 0;
@@ -149,12 +158,13 @@ RasterizeGaussiansCUDA(
 		radii.contiguous().data<int>(),
 		debug,
 		get_flag,
-		accum_metric_counts_ptr);
+		accum_metric_counts_ptr,
+		gauss_weights_ptr);
 
 		rendered = std::get<0>(tup);
 		num_buckets = std::get<1>(tup);
   }
-  return std::make_tuple(rendered, num_buckets, out_color, radii, geomBuffer, binningBuffer, imgBuffer, sampleBuffer, metricCount);
+  return std::make_tuple(rendered, num_buckets, out_color, radii, geomBuffer, binningBuffer, imgBuffer, sampleBuffer, metricCount, gaussWeights);
 }
 
 std::tuple<torch::Tensor, torch::Tensor, torch::Tensor, torch::Tensor, torch::Tensor, torch::Tensor, torch::Tensor, torch::Tensor, torch::Tensor>

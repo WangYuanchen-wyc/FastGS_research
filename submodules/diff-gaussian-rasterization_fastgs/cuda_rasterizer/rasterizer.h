@@ -56,7 +56,8 @@ namespace CudaRasterizer
 			int* radii = nullptr,
 			bool debug = false,
 			bool get_flag = false,
-			int* metricCount = nullptr);
+			int* metricCount = nullptr,
+			float* gaussWeights = nullptr);
 
 		static void backward(
 			const int P, int D, int M, int R, int B,

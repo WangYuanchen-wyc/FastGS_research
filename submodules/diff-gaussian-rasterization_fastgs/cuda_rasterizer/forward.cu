@@ -290,7 +290,8 @@ renderCUDA(
 	int* __restrict__ radii,
 	const int* __restrict__ metric_map,
 	bool get_flag,
-	int* __restrict__ metricCount)
+	int* __restrict__ metricCount,
+	float* __restrict__ gauss_weights)
 {
 	// Identify current tile and associated min/max pixel range.
 	auto block = cg::this_thread_block();
@@ -405,6 +406,11 @@ renderCUDA(
 		            atomicAdd(&(metricCount[collected_id[j]]), 1);
 	            }
 			}
+
+			// B19-P minimal instrumentation: accumulate the per-Gaussian blend
+			// weight alpha*T over pixels. No effect on color/gradient math.
+			if (gauss_weights != nullptr)
+				atomicAdd(&(gauss_weights[collected_id[j]]), alpha * T);
             
 			T = test_T;
 
@@ -459,7 +465,8 @@ void FORWARD::render(
 	int* radii,
 	const int* metric_map,
 	bool get_flag,
-	int* metricCount)
+	int* metricCount,
+	float* gauss_weights)
 {
 	renderCUDA<NUM_CHAFFELS> << <grid, block >> > (
 		ranges,
@@ -479,7 +486,8 @@ void FORWARD::render(
 		radii,
 		metric_map,
 		get_flag,
-		metricCount
+		metricCount,
+		gauss_weights
 		);
 }
 

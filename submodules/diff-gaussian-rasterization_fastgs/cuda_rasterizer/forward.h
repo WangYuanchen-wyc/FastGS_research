@@ -71,9 +71,10 @@ namespace FORWARD
 		char* img_contrib_scan,
 		size_t scan_size,
 		int* radii,
-		const int* metric_map,
-		bool get_flag,
-		int* metricCount);
+	const int* metric_map,
+	bool get_flag,
+	int* metricCount,
+	float* gauss_weights);
 }
 
 

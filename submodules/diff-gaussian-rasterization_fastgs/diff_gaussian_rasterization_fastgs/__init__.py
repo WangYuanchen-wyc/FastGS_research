@@ -63,9 +63,12 @@ class _RasterizeGaussians(torch.autograd.Function):
         get_flag = raster_settings.get_flag
         if get_flag == None:
             get_flag = False
+        get_weights = getattr(raster_settings, "get_weights", False)
+        if get_weights == None:
+            get_weights = False
 
         args = (
-            raster_settings.bg, 
+            raster_settings.bg,
             means3D,
             colors_precomp,
             opacities,
@@ -87,7 +90,8 @@ class _RasterizeGaussians(torch.autograd.Function):
             raster_settings.mult,
             raster_settings.prefiltered,
             raster_settings.debug,
-            get_flag
+            get_flag,
+            get_weights
         )
 
         # Invoke C++/CUDA rasterizer
@@ -100,17 +104,17 @@ class _RasterizeGaussians(torch.autograd.Function):
                 print("\nAn error occured in forward. Please forward snapshot_fw.dump for debugging.")
                 raise ex
         else:
-            num_rendered, num_buckets, color, radii, geomBuffer, binningBuffer, imgBuffer, sampleBuffer, accum_metric_counts = _C.rasterize_gaussians(*args)
+            num_rendered, num_buckets, color, radii, geomBuffer, binningBuffer, imgBuffer, sampleBuffer, accum_metric_counts, gauss_weights = _C.rasterize_gaussians(*args)
 
         # Keep relevant tensors for backward
         ctx.raster_settings = raster_settings
         ctx.num_rendered = num_rendered
         ctx.num_buckets = num_buckets
         ctx.save_for_backward(colors_precomp, means3D, scales, rotations, cov3Ds_precomp, radii, dc, sh, geomBuffer, binningBuffer, imgBuffer, sampleBuffer)
-        return color, radii, accum_metric_counts
+        return color, radii, accum_metric_counts, gauss_weights
 
     @staticmethod
-    def backward(ctx, grad_out_color, _, g_metric):
+    def backward(ctx, grad_out_color, _, g_metric, _gw):
 
         # Restore necessary values from context
         num_rendered = ctx.num_rendered
@@ -187,6 +191,7 @@ class GaussianRasterizationSettings(NamedTuple):
     debug : bool
     get_flag : bool
     metric_map : torch.Tensor
+    get_weights : bool = False
 
 class GaussianRasterizer(nn.Module):
     def __init__(self, raster_settings):
