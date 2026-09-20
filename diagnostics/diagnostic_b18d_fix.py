@@ -34,7 +34,7 @@ from utils.general_utils import inverse_sigmoid
 from arguments import ModelParams, PipelineParams, OptimizationParams
 from diagnostics.common import install_c_proxy, seed_all, native_train_one_iter
 
-OUT = "paper_b/b18_densification_persistence/fix"
+OUT = os.environ.get("B18D_OUT", "paper_b/b18_densification_persistence/fix")
 EARLY_START = 1000
 EARLY_END = 3000
 PROXIMITY_TOL = 0.05  # xyz distance for "same" Gaussian (same definition as B18-D)
@@ -271,8 +271,9 @@ def main():
                                   f"persist={n_persist} aliveNB={n_prev_alive} "
                                   f"PSNR={ps:.2f} #GS={n_gs_after}", flush=True)
 
-                if it % opt.opacity_reset_interval == 0:
+                if it < opt.densify_until_iter and it % opt.opacity_reset_interval == 0:
                     gaussians.reset_opacity()
+            gaussians.optimizer_step(it)  # native train.py:163 (was missing: frozen model)
 
         # --- child fate at densify end (15k) and final (30k) ---
         final_xyz = gaussians.get_xyz.detach()

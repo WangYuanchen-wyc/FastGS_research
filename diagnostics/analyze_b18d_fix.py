@@ -18,7 +18,8 @@ import matplotlib
 matplotlib.use("Agg")
 import matplotlib.pyplot as plt
 
-BASE = "paper_b/b18_densification_persistence/fix"
+BASE = os.environ.get("B18D_ANALYSIS_BASE",
+                      "paper_b/b18_densification_persistence/fix")
 DATA = f"{BASE}/data"
 PLOTS = f"{BASE}/plots"
 os.makedirs(PLOTS, exist_ok=True)
@@ -202,13 +203,20 @@ def main():
     ax[0].set_title("Trigger persistence (vs prev event)"); ax[0].legend(fontsize=7)
     # child alive next
     for s in (0, 1, 2):
-        xs = [r["birth_it"] for r in child_rows if r["seed"] == s and np.isfinite(
-            [t for t in trigger_rows if t["seed"] == s and t["event"] == r["birth_event"] + 1][0]["n_prev_newborn_alive_next"] if [t for t in trigger_rows if t["seed"] == s and t["event"] == r["birth_event"] + 1] else np.nan)]
-        ys = [next((t["n_prev_newborn_alive_next"] / r["n_born"]
-                    for t in trigger_rows
-                    if t["seed"] == s and t["event"] == r["birth_event"] + 1 and r["n_born"] > 0),
-                   np.nan) for r in child_rows if r["seed"] == s]
-        ax[1].plot(xs, ys, "o-", ms=3, label=f"seed{s}")
+        pts = []
+        for r in child_rows:
+            if r["seed"] != s or r["n_born"] <= 0:
+                continue
+            nxt = [t for t in trigger_rows
+                   if t["seed"] == s and t["event"] == r["birth_event"] + 1]
+            if not nxt:
+                continue
+            v = nxt[0]["n_prev_newborn_alive_next"] / r["n_born"]
+            if np.isfinite(v):
+                pts.append((r["birth_it"], v))
+        if pts:
+            xs, ys = zip(*pts)
+            ax[1].plot(xs, ys, "o-", ms=3, label=f"seed{s}")
     ax[1].axvspan(1000, EARLY_MAX_IT, alpha=0.15, color="red")
     ax[1].set_xscale("log"); ax[1].set_xlabel("birth iteration")
     ax[1].set_ylabel("alive@next-event frac"); ax[1].set_title("Newborn survival to next event")

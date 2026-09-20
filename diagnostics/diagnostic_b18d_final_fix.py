@@ -48,7 +48,7 @@ from utils.general_utils import inverse_sigmoid
 from arguments import ModelParams, PipelineParams, OptimizationParams
 from diagnostics.common import install_c_proxy, seed_all, native_train_one_iter
 
-OUT = "paper_b/b18_densification_persistence/final_fix"
+OUT = os.environ.get("B18DFF_OUT", "paper_b/b18_densification_persistence/final_fix")
 REF_TRIGGERS = "paper_b/b18_densification_persistence/fix/data/trigger_events.csv"
 EARLY_START, EARLY_END = 1000, 3000
 TOL = 0.05
@@ -291,9 +291,13 @@ def main():
                         n_clone, n_split, clone_kids, split_kids, keep_c, keep_s = \
                             apply_native_densify(gaussians, opt, it, radii, imp, pru, extent)
 
-                        # hard cross-check vs reference run (trajectory identity)
+                        # cross-check vs reference run is informational only now:
+                        # that reference was produced by a frozen-model loop
+                        # (missing optimizer_step), so trajectories legitimately
+                        # diverge under native stepping.
                         if (seed, event_num) in ref_trig and \
-                                ref_trig[(seed, event_num)] != n_split:
+                                ref_trig[(seed, event_num)] != n_split and \
+                                os.environ.get("B18DFF_STRICT_ASSERT") == "1":
                             raise RuntimeError(
                                 f"trajectory drift: seed {seed} ev {event_num} "
                                 f"n_split={n_split} != ref {ref_trig[(seed, event_num)]}")
@@ -382,8 +386,9 @@ def main():
                                   f"alive={int(child_alive.sum()) if child_alive is not None else 0} "
                                   f"PSNR={ps:.2f}", flush=True)
 
-                if it % opt.opacity_reset_interval == 0:
+                if it < opt.densify_until_iter and it % opt.opacity_reset_interval == 0:
                     gaussians.reset_opacity()
+            gaussians.optimizer_step(it)  # native train.py:163 (was missing: frozen model)
 
         # ---- final fate matching ----
         final_matched = None
